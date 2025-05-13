@@ -1,0 +1,28 @@
+version: 2
+
+sources:
+    - name: product_data
+      database: SNOWFLAKE_SAMPLE_DATA
+      schema: TPCH_SF1
+      tables:
+          - name: part # This is the name of the table in Snowflake
+            description: "Original PRODUCTS table from Snowflake TPCH_SF1 sample dataset."
+            columns:
+                - name: p_partkey
+                  description: "Part key."
+                - name: p_name
+                  description: "Part name."
+                - name: p_mfgr
+                  description: "Manufacturer."
+                - name: p_brand
+                  description: "Brand."
+                - name: p_type
+                  description: "Type."
+                - name: p_size
+                  description: "Size."
+                - name: p_container
+                  description: "Container type."
+                - name: p_retailprice
+                  description: "Retail price."
+                - name: p_comment
+                  description: "Comment."

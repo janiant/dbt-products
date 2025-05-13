@@ -1,0 +1,14 @@
+groups:
+    - name: sales_orders
+      owner:
+          name: "Sales Data Team"
+          email: "sales-data@acme.com"
+          slack: sales-data
+          github: sales-data-team
+
+    - name: sales_order_line
+      owner:
+          name: "Sales Ops Team"
+          email: "sales-ops@acme.com"
+          slack: sales-ops
+          github: sales-ops-team
