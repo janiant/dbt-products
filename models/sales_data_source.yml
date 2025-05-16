@@ -1,0 +1,32 @@
+sources:
+  - name: sales_data
+    description: "Source for sales team data"
+    database: acme_inc_prod
+    schema: public_sales_orders
+    tables:
+      - name: fct_sales_order_value
+        description: Fact table for sales order values
+        config:
+          tags: ["sales", "orders"]
+          meta:
+            owner: "@alice"
+            model_maturity: very mature
+            data_maturity: sure
+            data_source: sales_data
+        identifier: fct_sales_order_value
+        columns:
+          - name: order_id
+            description: Unique identifier for the sales order.
+            data_type: number
+          - name: customer_id
+            description: Unique identifier for the customer.
+            data_type: number
+          - name: order_date
+            description: Date when the order was placed.
+            data_type: date
+          - name: total_line_value
+            description: Total value of the line item.
+            data_type: number
+          - name: line_count
+            description: Number of line items in the order.
+            data_type: number

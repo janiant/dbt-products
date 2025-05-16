@@ -1,0 +1,7 @@
+groups:
+    - name: product_data
+      owner:
+          name: Product Data Team
+          email: product-data@acme.com
+          slack: product-data
+          github: product-data-team
