@@ -1,0 +1,17 @@
+version: 2
+
+models:
+  - name: int_top_3_suppliers
+    description: "Intermediate model to find the top 3 suppliers for each product."
+    config:
+      materialized: view
+      contract:
+        enforced: true
+      meta:
+        data_owner: "Product Management"
+        source_system: "Snowflake"
+    columns:
+      - name: suppkey
+        description: "Supplier id"
+      - name: product_count
+        description: "Count of products supplied by the supplier"
