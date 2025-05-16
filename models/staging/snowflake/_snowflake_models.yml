@@ -1,0 +1,57 @@
+version: 2
+
+models:
+  - name: stg_snowflake__products
+    description: "Staging view for TPCH_SF1.PART with proper typing and audit columns"
+    config:
+      group: product_data
+      tags: ["ding", "dong"]
+      contract:
+        enforced: true
+    columns:
+      - name: product_id
+        description: "Unique identifier for the product."
+        data_type: number
+        tests:
+          - unique
+          - not_null
+
+      - name: product_name
+        description: "Name of the product."
+        data_type: string
+
+      - name: manufacturer
+        description: "Name of the manufacturer."
+        data_type: string
+
+      - name: brand
+        description: "Brand of the product."
+        data_type: string
+
+      - name: product_type
+        description: "Type/category of the product."
+        data_type: string
+
+      - name: size
+        description: "Size specification of the product."
+        data_type: number
+
+      - name: container
+        description: "Packaging type of the product."
+        data_type: string
+
+      - name: retail_price
+        description: "Retail price of the product."
+        data_type: number
+
+      - name: comment
+        description: "Additional comments or notes."
+        data_type: string
+
+      - name: record_inserted_at
+        description: "Timestamp when the record was inserted."
+        data_type: timestamp_ntz
+
+      - name: effective_from
+        description: "Effective start date for the record."
+        data_type: timestamp_ntz
