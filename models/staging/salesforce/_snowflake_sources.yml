@@ -1,7 +1,7 @@
 version: 2
 
 sources:
-  - name: product_data
+  - name: salesforce
     config:
       enabled: true
       meta:
@@ -43,15 +43,6 @@ sources:
           - name: p_comment
             description: "Comment."
 
-  - name: product_supplier
-    config:
-      enabled: true
-      meta:
-        source_system: "Snowflake"
-        data_owner: "Supplier Relations"
-    database: SNOWFLAKE_SAMPLE_DATA
-    schema: TPCH_SF1
-    tables:
       - name: partsupp
         description: "Table that links products to suppliers."
         columns:
@@ -69,3 +60,17 @@ sources:
 
           - name: ps_comment
             description: "Comment."
+
+      - name: region
+        meta:
+          source_system: "Snowflake"
+          data_owner: "Product Management"
+        columns:
+          - name: r_regionkey
+            data_type: number
+
+          - name: r_name
+            data_type: varchar
+
+          - name: r_comment
+            data_type: varchar

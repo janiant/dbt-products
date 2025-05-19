@@ -1,5 +1,5 @@
 with source as (
-    select * from {{ source('product_supplier', 'partsupp') }}
+    select * from {{ source('salesforce', 'partsupp') }}
 ), 
 
 renamed as (

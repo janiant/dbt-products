@@ -31,9 +31,12 @@ models:
   product_data:
     # Config indicated by + and applies to all files under models/example/
     staging:
-      snowflake:
+      salesforce:
         +materialized: view
         +schema: staging
     intermediate:
       +materialized: view
       +schema: intermediate
+    marts:
+      +materialized: view
+      +schema: marts

@@ -7,7 +7,7 @@
 with source as (
 
     select * from 
-    {{ source('product_data', 'part') }}
+    {{ source('salesforce', 'part') }}
     
     ), 
 

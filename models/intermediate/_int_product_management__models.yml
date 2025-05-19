@@ -2,9 +2,10 @@ version: 2
 
 models:
   - name: int_top_3_suppliers
+    latest_version: 2
     description: "Intermediate model to find the top 3 suppliers for each product."
     config:
-      materialized: view
+      materialized: table
       contract:
         enforced: true
       meta:
@@ -13,5 +14,20 @@ models:
     columns:
       - name: suppkey
         description: "Supplier id"
+        data_type: integer
       - name: product_count
         description: "Count of products supplied by the supplier"
+        data_type: integer
+
+    versions:
+      - v: 1
+        config:
+          alias: int_top_3_suppliers
+      - v: 2
+        config:
+          materialized: view
+        columns:
+          - include: "*"
+          - name: avg_supply_cost
+            data_type: number
+            description: "Average supply cost for the supplier"
