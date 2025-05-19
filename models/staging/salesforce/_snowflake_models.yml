@@ -5,7 +5,7 @@ models:
     description: "Staging view for TPCH_SF1.PART with proper typing and audit columns"
     config:
       group: product_data
-      tags: [ "products", "unique", "xyz" ]
+      tags: ["products", "unique", "xyz"]
       contract:
         enforced: true
     columns:
@@ -55,6 +55,7 @@ models:
       - name: effective_from
         description: "Effective start date for the record."
         data_type: timestamp_ntz
+
   - name: stg_snowflake__product_supplier
     description: Supplier information for products
     columns:
