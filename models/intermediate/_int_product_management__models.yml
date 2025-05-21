@@ -10,7 +10,7 @@ models:
         enforced: true
       meta:
         data_owner: "Product Management"
-        source_system: "Snowflake"
+        source_system: "Salesforce"
     columns:
       - name: suppkey
         description: "Supplier id"

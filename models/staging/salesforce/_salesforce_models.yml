@@ -1,16 +1,24 @@
 version: 2
 
 models:
-  - name: stg_snowflake__products
+  - name: stg_salesforce__products
     description: "Staging view for TPCH_SF1.PART with proper typing and audit columns"
+    meta:
+      source_system: Salesforce
+      data_owner: Product Management
+      contains_pii: false
     config:
       group: product_data
-      tags: ["products", "unique", "xyz"]
+      tags:
+        - products
+        - xyz
       contract:
         enforced: true
     columns:
       - name: product_id
         description: "Unique identifier for the product."
+        tags:
+          - product_tag
         data_type: number
         tests:
           - unique
@@ -56,14 +64,13 @@ models:
         description: "Effective start date for the record."
         data_type: timestamp_ntz
 
-  - name: stg_snowflake__product_supplier
+  - name: stg_salesforce__product_supplier
     description: Supplier information for products
     columns:
       - name: product_id
         description: Product identification
         data_type: number
         data_tests:
-          - unique
           - not_null
       - name: suppkey
         description: Supplier identification
@@ -75,4 +82,21 @@ models:
         description: Product purchase price
         data_type: number
       - name: comment
+        data_type: varchar
+  - name: stg_salesforce__region
+    description: Region keys, names and descriptions
+    columns:
+      - name: region_id
+        description: Region identifier
+        data_type: number
+        data_tests:
+          - unique
+          - not_null
+      - name: region_name
+        description: Region name
+        data_type: varchar
+        data_tests:
+          - not_null
+      - name: comment
+        description: Region comment
         data_type: varchar

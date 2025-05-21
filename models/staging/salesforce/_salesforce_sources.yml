@@ -2,28 +2,33 @@ version: 2
 
 sources:
   - name: salesforce
-    config:
-      enabled: true
-      meta:
-        source_system: "Snowflake"
-        data_owner: "Product Management"
-      tags:
-        - product
-        - parts
+    meta:
+      very_secret: yes
     database: SNOWFLAKE_SAMPLE_DATA # This is the name of the database in Snowflake
     schema: TPCH_SF1 # This is the name of the schema in Snowflake
+    tags:
+      - salesforce
+      - tpch
     tables:
       - name: part # This is the name of the table in Snowflake
         description: "Original PRODUCTS table from Snowflake TPCH_SF1 sample dataset."
+        tags:
+          - products
+          - parts
         columns:
           - name: p_partkey
             description: "Part key."
+            tests:
+              - unique
+              - not_null
 
           - name: p_name
             description: "Part name."
 
           - name: p_mfgr
             description: "Manufacturer."
+            tests:
+              - unique
 
           - name: p_brand
             description: "Brand."

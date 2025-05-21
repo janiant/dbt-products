@@ -1,9 +1,9 @@
 with products as (
-    select * from {{ ref('stg_snowflake__products') }}
+    select * from {{ ref('stg_salesforce__products') }}
 ),
 
 suppliers as (
-    select * from {{ ref('stg_snowflake__product_supplier') }}
+    select * from {{ ref('stg_salesforce__product_supplier') }}
 )
 
 select 
